@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getaway Travel</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="absolute w-full top-0 z-50 flex justify-between items-center p-6 bg-transparent">
+    <div class="text-white font-bold text-2xl">
+      Minimalist
+    </div>
+
+    <nav class="flex gap-6 text-white text-sm">
+      <a href="index.html" class="hover:opacity-60 transition duration-300">
+        Home
+      </a>
+      <a href="shop.html" class="hover:opacity-60 transition duration-300">
+        Shop
+      </a>
+      <a href="blog.html" class="hover:opacity-60 transition duration-300">
+        Blog
+      </a>
+      <a href="gallery.html" class="hover:opacity-60 transition duration-300">
+        Gallery
+      </a>
+      <a href="#" class="hover:opacity-60 transition duration-300">
+        Contact
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="relative h-[550px] flex justify-start items-center pl-2 gap-20 overflow-hidden">
+
+      <!-- Background Video Compressed -->
+      <video autoplay muted loop playsinline preload="metadata" poster="fallback.png"
+        class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="background_video_landscape_compressed_2.webm" type="video/webm">
+        <source src="background_video_landscape_compressed_2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Gradient Overlay -->
+      <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-black z-10"></div>
+
+      <!-- Social Icons -->
+      <div class="flex flex-col space-y-4 z-20"></div>
+
+      <!-- Main Text Content -->
+      <div class="text-white flex flex-col justify-center items-start max-w-xl z-20">
+        <h1 class="text-5xl font-extrabold leading-tight">
+          Everything you need<br />
+          to travel the world for less
+        </h1>
+      </div>
+
+    </section>
+
+    <!-- About Me -->
+    <section class="bg-black px-6 py-16 md:flex md:items-center md:justify-around">
+      <img
+        src="https://images.unsplash.com/photo-1635131902146-6957477a4ff4?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="RV on cliff" class="w-full max-w-md rounded-lg shadow-lg mb-8 md:mb-0" />
+
+      <div class="max-w-xl md:ml-10 text-white">
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+
+        <p class="font-semibold mb-2">
+          I’ve explored 29 of the world’s 197 countries —
+          mostly solo — and every destination has left its
+          mark.
+        </p>
+
+        <p class="mb-4 text-sm text-gray-300">
+          Originally from the Czechia, I now live in London
+          and previously spent almost two years calling New
+          Zealand home. My journey has taken me from the
+          peaceful fjords of the south to the heart of
+          Africa, where I recently spent four unforgettable
+          months.
+          <br />
+          <br />
+          Along the way, I’ve met incredible people, faced
+          unexpected challenges, and discovered how powerful
+          solo travel can be. Through this blog, I share
+          stories, insights, and travel tips to help others
+          embrace the adventure and freedom of exploring the
+          world.
+        </p>
+
+        <button class="bg-[#25d3d4] px-5 py-2 text-black rounded hover:bg-opacity-70 transition duration-300">
+          Read More →
+        </button>
+      </div>
+    </section>
+
+    <!-- Visited Countries Section -->
+    <section class="bg-black text-white py-16 px-6" id="map">
+      <h2 class="text-4xl font-bold text-center mb-4">
+        Where I've Been
+      </h2>
+      <p class="text-center text-gray-400 mb-10">
+        A visual map of my travels
+      </p>
+
+      <div id="world-map" class="w-full h-[500px] max-w-6xl mx-auto rounded overflow-hidden"></div>
+
+      <div class="mt-8 text-center space-y-2 text-gray-300">
+        <p>
+          <span class="font-semibold text-white">29</span>
+          Countries
+        </p>
+        <p>
+          <span class="font-semibold text-white">6</span>
+          Continents
+        </p>
+        <p>
+          <span class="font-semibold" style="color: #25d3d4">
+            15%
+          </span>
+          of the World
+        </p>
+      </div>
+    </section>
+
+    <!-- Visited Countries Section Scripts -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <script>
+      am5.ready(function () {
+        let root = am5.Root.new('world-map');
+
+        root.setThemes([am5themes_Animated.new(root)]);
+
+        let chart = root.container.children.push(
+          am5map.MapChart.new(root, {
+            panX: 'none',
+            panY: 'none',
+            wheelY: 'none',
+            projection: am5map.geoMercator(),
+          })
+        );
+
+        let polygonSeries = chart.series.push(
+          am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_worldLow,
+            exclude: ['AQ'],
+          })
+        );
+        // List of ISO country codes you’ve visited
+        const visited = [
+          'US',
+          'MX',
+          'CO',
+          'AU',
+          'NZ',
+          'ZA',
+          'KE',
+          'EG',
+          'TH',
+          'NO',
+          'SE',
+          'DK',
+          'DE',
+          'FR',
+          'CH',
+          'AT',
+          'IT',
+          'NL',
+          'BE',
+          'ES',
+          'PT',
+          'GB',
+          'CZ',
+          'GR',
+          'PL',
+          'HR',
+          'TZ',
+          'NA',
+          'MA',
+          'JM',
+          'DO',
+          'AE',
+        ];
+
+        polygonSeries.mapPolygons.template.setAll({
+          tooltipText: '{name}',
+          interactive: true,
+        });
+
+        polygonSeries.mapPolygons.template.adapters.add(
+          'fill',
+          (fill, target) => {
+            let id = target.dataItem.dataContext.id;
+            return visited.includes(id) ?
+              am5.color('#26d3d4') :
+              am5.color('#4b5563');
+          }
+        );
+      });
+    </script>
+
+
+    <!-- 3 Big Icons Section -->
+    <section class="bg-black py-12 text-white text-center">
+      <div class="flex flex-col md:flex-row justify-around items-center w-full max-w-6xl mx-auto px-6 gap-12">
+
+        <!-- Item 1 -->
+        <a href="gallery.html"
+          class="group flex flex-col items-center transition duration-300 transform hover:opacity-80 hover:scale-105 cursor-pointer">
+          <i
+            class="fas fa-camera-retro text-7xl bg-gradient-to-r from-cyan-400 to-teal-400 text-transparent bg-clip-text mb-4"></i>
+          <p class="text-cyan-400 text-lg font-medium">
+            Favourite pictures
+          </p>
+        </a>
+
+        <!-- Divider -->
+        <div class="hidden md:block w-px h-24 bg-gradient-to-b from-cyan-400 to-teal-400"></div>
+
+        <!-- Item 2 -->
+        <a href="shop.html"
+          class="group flex flex-col items-center transition duration-300 transform hover:opacity-80 hover:scale-105 cursor-pointer">
+          <i
+            class="fas fa-shopping-bag text-7xl bg-gradient-to-r from-cyan-400 to-teal-400 text-transparent bg-clip-text mb-4"></i>
+          <p class="text-cyan-400 text-lg font-medium">
+            Shop
+          </p>
+        </a>
+
+        <!-- Divider -->
+        <div class="hidden md:block w-px h-24 bg-gradient-to-b from-cyan-400 to-teal-400"></div>
+
+        <!-- Item 3 -->
+        <a href="blog.html"
+          class="group flex flex-col items-center transition duration-300 transform hover:opacity-80 hover:scale-105 cursor-pointer">
+          <i
+            class="fas fa-suitcase-rolling text-7xl bg-gradient-to-r from-cyan-400 to-teal-400 text-transparent bg-clip-text mb-4"></i>
+          <p class="text-cyan-400 text-lg font-medium">
+            Travelling Tips
+          </p>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- Fund me Section -->
+    <section class="bg-gray-950 text-white py-20 px-6 min-h-screen flex items-center justify-center">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-teal-400 text-transparent bg-clip-text">
+          My Africa Solo Journey
+        </h2>
+
+        <p class="text-lg text-gray-300 mb-6">
+          I’ve made a promise: Once I raise
+          <span class="text-cyan-400 font-semibold">
+            £25,000
+          </span>
+          , I will set off on a solo trip to travel across
+          the entire African continent — and I’ll document
+          every moment.
+        </p>
+
+        <p class="text-gray-400 mb-6">
+          From the deserts of Namibia to the markets of
+          Morocco, the highlands of Ethiopia to the
+          coastlines of Ghana — I’ll share the cultures,
+          people, and landscapes like never before.
+        </p>
+
+        <p class="text-gray-400 mb-8">
+          If the full amount isn’t used for travel, the rest
+          will go toward making my content better — hiring a
+          <span class="text-cyan-400 font-medium">
+            video editor
+          </span>
+          , a
+          <span class="text-cyan-400 font-medium">
+            blog writer
+          </span>
+          , and enhancing the storytelling. All spending
+          will be
+          <span class="text-cyan-400 font-medium">
+            100% transparent
+          </span>
+          .
+        </p>
+
+        <a href="https://gofundme.com" target="_blank"
+          class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold text-lg transition transform hover:scale-105 hover:opacity-90">
+          Support the Journey
+        </a>
+
+        <!-- Fund Progress Chart -->
+        <div class="mt-12 flex flex-col items-center justify-center">
+          <div class="w-48 h-48 relative">
+            <canvas id="progressChart" class="w-full h-full"></canvas>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-cyan-400 font-semibold text-xl">
+                35%
+              </span>
+            </div>
+          </div>
+          <div class="text-gray-400 text-sm mt-4">
+            Raised
+            <span class="text-cyan-400 font-semibold">
+              £8,750
+            </span>
+            of
+            <span class="text-cyan-400 font-semibold">
+              £25,000
+            </span>
+            goal
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const raised = 8750;
+      const goal = 25000;
+      const remaining = goal - raised;
+      const percentage = Math.round((raised / goal) * 100);
+
+      const ctx = document
+        .getElementById('progressChart')
+        .getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Raised', 'Remaining'],
+          datasets: [{
+            data: [raised, remaining],
+            backgroundColor: ['#22d3ee', '#374151'],
+            borderWidth: 0,
+          }, ],
+        },
+        options: {
+          cutout: '75%',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return `£${context.parsed.toLocaleString()}`;
+                },
+              },
+            },
+          },
+        },
+      });
+    </script>
+
+
+    <!-- Explore the World Section -->
+
+    <section class="bg-black py-16 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-handwriting font-bold text-white mb-4">Explore The World</h2>
+        <p class="text-white mb-12">Looking for inspiration for your new trip? Take a look through my posts and
+          guides below!</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+          <!-- Africa -->
+          <a href="africa.html" class="relative group block">
+            <img
+              src="https://images.unsplash.com/photo-1597329363670-7d62990d956d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Africa" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Africa</div>
+          </a>
+
+          <!-- Asia -->
+          <a href="asia.html" class="relative group block">
+            <img
+              src="https://images.unsplash.com/photo-1494949360228-4e9bde560065?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Asia" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Asia</div>
+          </a>
+
+          <!-- Caribbean -->
+          <a href="caribbean.html" class="relative group block">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1718275462356-237975430b64?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="West Africa" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Caribbean</div>
+          </a>
+
+          <!-- Oceaania -->
+          <a href="oceania.html" class="relative group block">
+            <img
+              src="https://images.unsplash.com/photo-1531804055935-76f44d7c3621?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="North Africa" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Oceania</div>
+          </a>
+
+          <!-- Kilimanjaro -->
+          <a href="kilimanjaro.html" class="relative group block">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1697729996368-5b5c7843113e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Packing Lists" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Kilimanjaro</div>
+          </a>
+
+          <!-- Travel Dating -->
+          <a href="dating.html" class="relative group block">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1711610288758-f0f6ea15e73b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Africa Itineraries" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Travel Dating</div>
+          </a>
+
+          <!-- Safari Guides -->
+          <a href="safari.html" class="relative group block">
+            <img
+              src="https://images.unsplash.com/photo-1631646109248-a7264aae1790?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Safari Guides" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Safari Guides</div>
+          </a>
+
+          <!-- Common Scams -->
+          <a href="scams.html" class="relative group block">
+            <img
+              src="https://images.unsplash.com/photo-1663824580144-9c2a1f257b15?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Things To Do" class="w-full h-64 object-cover rounded shadow-md">
+            <div
+              class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded text-black text-sm font-semibold transition group-hover:bg-cyan-500 group-hover:text-white cursor-pointer">
+              Common Scams</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Travel Packing List Email Section -->
+    <section class="bg-black py-16 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+
+        <!-- Text + Form -->
+        <div class="md:w-1/2 text-center md:text-left">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 uppercase">
+            Get Your <span class="text-cyan-500 uppercase">Ultimate Travel Packing List</span>
+          </h2>
+          <p class="text-lg text-gray-500 mb-6">
+            Learn how to pack smarter — not heavier. This free checklist shows you how to reduce your luggage size, save
+            money, and travel lighter for longer.
+            Discover space-saving, multi-purpose items that follow airline rules and make your bag lighter without
+            sacrificing comfort.
+          </p>
+          <form id="packingListForm" class="space-y-4 max-w-md mx-auto md:mx-0 text-black">
+            <input type="text" name="firstName" placeholder="First Name" pattern="[A-Za-z\s]{2,}" required
+              class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+            <input type="email" name="email" placeholder="Email Address"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+              class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+            <!-- Hidden link to your Google Doc -->
+            <input type="hidden" name="pdf_link"
+              value="https://docs.google.com/document/d/1dRvfayg3ss2eppvooI-MPeZ9u3DtOEKlHRqMwXHbmic/export?format=pdf" />
+
+            <input type="text" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+
+            <button type="submit"
+              class="w-full bg-cyan-500 hover:opacity-90 transform hover:scale-105 text-white font-bold py-3 rounded-md transition-all">
+              I’m Ready to Pack Smart
+            </button>
+          </form>
+        </div>
+
+        <!-- eBook Images -->
+        <div class="md:w-1/2 flex justify-center relative h-[300px]">
+          <img
+            src="https://images.unsplash.com/photo-1521411086197-4f459beee413?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Travel Luggage"
+            class="w-36 sm:w-40 md:w-44 shadow-lg absolute bottom-0 left-12 rotate-[-10deg] z-10" />
+          <img
+            src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Pepper Check Lists"
+            class="w-36 sm:w-40 md:w-44 shadow-xl absolute bottom-0 left-1/2 -translate-x-1/2 z-20" />
+          <img
+            src="https://images.unsplash.com/photo-1673505705687-dffbfd02b613?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Empty Travel Bag"
+            class="w-36 sm:w-40 md:w-44 shadow-lg absolute bottom-0 right-12 rotate-[10deg] z-10" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="thankYouModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden px-4">
+      <div class="bg-white max-w-md w-full p-6 rounded-lg shadow-xl text-center">
+        <h2 class="text-2xl font-bold text-cyan-600 mb-4">🎉 You're In!</h2>
+        <p class="text-gray-700 mb-6">
+          Check your inbox for the Ultimate Travel Packing List.
+        </p>
+        <button onclick="closeModal()"
+          class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-6 rounded transition-all">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("YxjOPgwYzHdDUgTmD");
+      })();
+
+      document.getElementById('packingListForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+
+        // Honeypot check
+        const botcheck = form.querySelector('input[name="botcheck"]');
+        if (botcheck && botcheck.value.trim() !== "") {
+          console.warn('Spam detected via honeypot. Submission blocked.');
+          return;
+        }
+
+        emailjs.sendForm('service_84x5sgl', 'template_cheh3ai', form)
+          .then(function () {
+            form.reset();
+            document.getElementById('thankYouModal').classList.remove('hidden');
+          }, function (error) {
+            alert('Failed to send. Please try again.');
+            console.log('FAILED...', error);
+          });
+      });
+
+      function closeModal() {
+        document.getElementById('thankYouModal').classList.add('hidden');
+      }
+
+      // Optional: Close modal with ESC key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+    </script>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black px-6 py-12 text-center rounded-t-lg">
+    <!-- Navigation Links -->
+    <div class="flex justify-center space-x-6 mb-6 text-sm">
+      <a href="index.html"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        Home
+      </a>
+      <a href="shop.html"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        Shop
+      </a>
+      <a href="blog.html"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        Blog
+      </a>
+      <a href="gallery.html"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        Gallery
+      </a>
+      <a href="contact.html"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        Contact
+      </a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center space-x-6 mb-6 text-xl">
+      <a href="https://www.instagram.com/dennisrmnk" target="_blank" aria-label="Instagram"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@dennisrmnk" target="_blank" aria-label="TikTok"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UChxFtHTZgG6xDQ1Q7j5TxJQ" aria-label="YouTube"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600 hover:opacity-90 transition">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+
+    <!-- Legal Links -->
+    <div class="text-xs text-gray-400 mb-2">
+      <a href="/privacy" class="hover:underline">Privacy Policy</a>
+      •
+      <a href="/terms" class="hover:underline">Terms</a>
+    </div>
+
+    <!-- Copyright -->
+    <p class="text-xs text-gray-500">
+      &copy; 2025 Dennisrmnk. All rights reserved.
+    </p>
+  </footer>
+</body>
+
+</html>
