@@ -14,14 +14,40 @@
   <!-- Header -->
   <header class="w-full top-0 z-50 flex justify-between items-center p-6 bg-black text-white">
     <div class="font-bold text-2xl">The Minimalist</div>
-    <nav class="flex gap-6 text-sm">
+
+    <button id="hamburger-icon" class="lg:hidden p-2 text-white">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <nav class="flex gap-6 text-sm lg:flex hidden">
       <a href="index.html" class="hover:opacity-60 transition duration-300">Home</a>
       <a href="shop.html" class="hover:opacity-60 transition duration-300">Shop</a>
       <a href="blog.html" class="hover:opacity-60 transition duration-300">Blog</a>
       <a href="gallery.html" class="hover:opacity-60 transition duration-300">Gallery</a>
-      <a href="#" class="hover:opacity-60 transition duration-300">Contact</a>
+      <a href="contact.html" class="hover:opacity-60 transition duration-300">Contact</a>
     </nav>
   </header>
+
+  <div class="lg:hidden w-full hidden" id="mobile-menu">
+    <ul class="flex flex-col font-medium bg-gray-800 text-white">
+      <li><a href="index.html" class="block py-2 px-3 hover:bg-gray-700">Home</a></li>
+      <li><a href="shop.html" class="block py-2 px-3 hover:bg-gray-700">Shop</a></li>
+      <li><a href="blog.html" class="block py-2 px-3 hover:bg-gray-700">Blog</a></li>
+      <li><a href="gallery.html" class="block py-2 px-3 hover:bg-gray-700">Gallery</a></li>
+      <li><a href="contact.html" class="block py-2 px-3 hover:bg-gray-700">Contact</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburgerIcon.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 
   <hr class="my-8 border-gray-700 w-24 mx-auto">
 
