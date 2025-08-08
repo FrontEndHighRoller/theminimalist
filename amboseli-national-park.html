@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Discover the ultimate self-drive itinerary for Amboseli National Park. Get insights on car hire, park rules, top wildlife viewing spots, and costs for a memorable safari experience.">
+
+    <title>Complete Amboseli National Park Self-Drive Itinerary: Car Hire, Park Rules & Top Animal Spots</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans flex flex-col min-h-screen bg-white text-black">
+
+    <!-- Header -->
+    <header class="w-full top-0 z-50 flex justify-between items-center p-6 bg-black text-white">
+        <div class="font-bold text-2xl">The Minimalist</div>
+
+        <button id="hamburger-icon" class="lg:hidden p-2 text-white">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <nav class="flex gap-6 text-sm lg:flex hidden">
+            <a href="#" class="hover:opacity-60 transition duration-300">Home</a>
+            <a href="#" class="hover:opacity-60 transition duration-300">Shop</a>
+            <a href="#" class="hover:opacity-60 transition duration-300">Blog</a>
+            <a href="#" class="hover:opacity-60 transition duration-300">Gallery</a>
+            <a href="#" class="hover:opacity-60 transition duration-300">Contact</a>
+        </nav>
+    </header>
+
+    <div class="lg:hidden w-full hidden" id="mobile-menu">
+        <ul class="flex flex-col font-medium bg-gray-800 text-white">
+            <li><a href="#" class="block py-2 px-3 hover:bg-gray-700">Home</a></li>
+            <li><a href="#" class="block py-2 px-3 hover:bg-gray-700">Shop</a></li>
+            <li><a href="#" class="block py-2 px-3 hover:bg-gray-700">Blog</a></li>
+            <li><a href="#" class="block py-2 px-3 hover:bg-gray-700">Gallery</a></li>
+            <li><a href="#" class="block py-2 px-3 hover:bg-gray-700">Contact</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburgerIcon.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+
+    <!-- Page Container -->
+    <div class="max-w-6xl mx-auto px-4 py-10 mb-44 grid grid-cols-1 lg:grid-cols-6 gap-5">
+
+        <!-- Main Content (3/5) -->
+        <main class="lg:col-span-4 space-y-10">
+
+            <!-- Title -->
+            <section class="bg-gradient-to-r from-cyan-400 to-cyan-600 p-6 rounded-md shadow-lg text-white">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+                    Complete Self-Drive Itinerary for Amboseli National Park: Car Hire, Park Rules & Top Wildlife
+                    Viewing
+                    Spots
+                </h1>
+                <div class="text-sm flex flex-wrap items-center gap-4">
+                    <span class="flex items-center gap-1"><i class="fa fa-user"></i> Dennis</span>
+                    <span class="flex items-center gap-1"><i class="fa fa-calendar-alt"></i> Published: July 20,
+                        2025</span>
+                    <span class="flex items-center gap-1"><i class="fa fa-pen"></i> Updated: July 22, 2025</span>
+                </div>
+            </section>
+
+            <!-- Hero Image -->
+            <img src="./assets/elephant-mount-kilimanajaro-night.jpg"
+                alt="Amboseli National Park - Elephant and Kilimanjaro"
+                class="w-full h-[500px] object-cover object-center" loading="lazy" />
+
+            <!-- Table of Contents -->
+            <section class="bg-gray-100 p-6 rounded-md shadow-md">
+                <h2 class="text-2xl font-semibold mb-4">Table of Contents</h2>
+                <ul class="list-disc list-inside space-y-2 text-blue-600">
+                    <li><a href="#intro">Introduction to Amboseli National Park</a></li>
+                    <li><a href="#wildlife">What Animals Can You Find In Amboseli National Park?</a></li>
+                    <li><a href="#self-drive">Self-Drive Through Amboseli National Park</a></li>
+                    <li><a href="#why-self-drive">Why Choose a Self-Drive Safari?</a></li>
+                    <li><a href="#best-time">Best Time to Visit Amboseli National Park</a></li>
+                    <li><a href="#ebook">Exclusive Amboseli National Park Map</a></li>
+                </ul>
+            </section>
+
+
+            <!-- Introduction to Amboseli National Park -->
+            <section id="intro" class="mb-8">
+
+                <h2 class="text-3xl font-semibold mb-2">Introduction to Amboseli National Park</h2>
+
+                <div class="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden mb-8">
+                    <img src="./assets/kimana-gate-amboseli-national-park-safari.jpg"
+                        alt="Kimana Gate entrance to Amboseli National Park, safari drive"
+                        class="object-cover object-center w-full h-full" loading="lazy">
+                </div>
+
+                <p class="text-gray-700 mb-6">
+                    Amboseli National Park is located on the border with Tanzania, just a <strong>3.5-hour drive from
+                        Nairobi.</strong>
+                    It’s one of the most picturesque parks in Africa, offering stunning views of Mount Kilimanjaro. This
+                    view is a highlight of the park and one of the reasons why Amboseli is a must-visit destination.
+                </p>
+
+                <h3 class="text-2xl font-semibold mb-2">Why is it called Amboseli?</h3>
+                <p class="text-gray-700 mb-6">
+                    The name Amboseli comes from the Maa word <strong>“Empusel”</strong>, which means
+                    <strong>“salty-dust.”</strong> The
+                    name refers to
+                    the volcanic ash from <strong>Mount Kilimanjaro</strong> that covers parts of the park. The park is
+                    unique for its
+                    backdrop of Kilimanjaro and its incredible wildlife.
+                </p>
+
+                <ul class="list-disc list-inside pl-6 mb-6">
+                    <li class="mb-3">
+                        <span class="inline-block"><strong>Elephant Population:</strong></span>
+                        <span class="block ml-6">Amboseli has one of the highest concentrations of elephants in
+                            Africa.</span>
+                    </li>
+                    <li>
+                        <span class="inline-block"><strong>Water Supply:</strong></span>
+                        <span class="block ml-6">The park may seem dry, but underground streams from the melting
+                            ice cap on Kilimanjaro keep parts of the park well-watered, attracting elephants and a
+                            variety of bird species.</span>
+                    </li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold mb-2">Key Facts About Amboseli National Park:</h3>
+                <ul class="list-disc list-inside pl-6 mb-6">
+                    <li class="mb-3"> <strong>Area:</strong> 392 sq km </li>
+                    <li class="mb-3"><strong>Gazetted:</strong> 1974</li>
+                    <li class="mb-3"><strong>Altitude:</strong> 1,150 meters above sea level</li>
+                    <li class="mb-3"><strong>Climate:</strong> Dry with rainy seasons (Dec-Mar) and dry periods
+                        (Jun-Nov).</li>
+                    <li class="mb-3"><strong>Soil:</strong> Volcanic ash soil</li>
+                    <li class="mb-3"><strong>Unfenced:</strong> Amboseli is not fenced, allowing wildlife to roam
+                        freely.
+                    </li>
+                </ul>
+            </section>
+
+
+            <!-- What Animals can you see in Amboseli national park -->
+            <section id="wildlife" class="mb-8">
+                <h2 class="text-3xl font-semibold mb-4">What Animals Can You See in Amboseli National Park?</h2>
+                <div class="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden mb-8">
+                    <img src="./assets/tree-kilimanjaro.jpg"
+                        alt="Umbrella Thorn Tree with mount kilimanjaro background, amboseli self-drive"
+                        class="object-cover object-center w-full h-full" loading="lazy">
+                </div>
+
+                <p class="mb-5">Amboseli is famous for its <strong>elephant populations</strong>, but there’s so much
+                    more to see. The park is home to a variety of animals that roam freely in their natural habitats.
+                    Some of the most common sightings include:</p>
+
+                <ul class="list-disc list-inside pl-6 space-y-2 text-gray-700 mb-8">
+                    <li class="mb-3">
+                        <span class="inline-block"><strong>Elephants:</strong></span>
+                        <span class="block ml-6">Known for their <span class="font-bold">large herds</span>, they are
+                            the stars of Amboseli. Expect to see them near <span class="font-bold">swamps</span> or
+                            <span class="font-bold">waterholes</span>, where they often congregate to drink and
+                            bathe.</span>
+                    </li>
+                    <li class="mb-3">
+                        <span class="inline-block"><strong>Zebras:</strong></span>
+                        <span class="block ml-6">You’ll spot them all over the park, especially in the <span
+                                class="font-bold">grasslands</span>.</span>
+                    </li>
+                    <li class="mb-3">
+                        <span class="inline-block"><strong>Giraffes:</strong></span>
+                        <span class="block ml-6">They can often be seen grazing in the <span
+                                class="font-bold">savannah</span> near the park’s <span class="font-bold">woodland
+                                edges</span>.</span>
+                    </li>
+                    <li class="mb-3">
+                        <span class="inline-block"><strong>Hippos:</strong></span>
+                        <span class="block ml-6">Found in the park’s <span class="font-bold">swamps</span> and rivers,
+                            these majestic creatures are great to observe.</span>
+                    </li>
+                    <li>
+                        <span class="inline-block"><strong>Flamingos:</strong></span>
+                        <span class="block ml-6">Lake Amboseli and nearby <span class="font-bold">salt pans</span> are
+                            perfect places to spot these beautiful birds, especially during the wet season.</span>
+                    </li>
+                </ul>
+
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded">
+                    <p class="font-semibold text-yellow-800 mb-1">💡 TIP:</p>
+                    <p class="text-gray-800">If you want to see lions or cheetahs, you might have better luck in parks
+                        like <strong>Masai Mara</strong> or <strong>Tsavo</strong>. While these
+                        predators do visit Amboseli, they’re harder to spot regularly. </p>
+                </div>
+
+            </section>
+
+
+
+
+            <!-- Why Choose a Self-Drive Safari -->
+            <section id="self-drive" class="mb-8">
+                <h2 class="text-3xl font-semibold mb-4">Why Choose a Self-Drive Safari?</h2>
+
+                <div class="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden mb-8">
+                    <img src="./assets/nissan-xtrail-suv-safari-car.jpg"
+                        alt="The best car for self drive in amboseli national park safari game"
+                        class="object-cover object-center w-full h-full" loading="lazy">
+                </div>
+
+                <div class="bg-green-100 border-l-4 border-green-500 p-4 rounded mb-8">
+                    <p class="font-semibold text-green-800 mb-1">PROS:</p>
+                    <ul class="list-disc list-inside pl-6 space-y-2 text-gray-800">
+                        <li class="mb-3">
+                            <span class="inline-block"><strong>Cost-Effective:</strong></span>
+                            <span class="block ml-6"> It’s much cheaper than hiring a guide or booking through the
+                                company,
+                                especially if you’re travelling in a group.</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="inline-block"><strong>Flexibility:</strong></span>
+                            <span class="block ml-6"> You can visit any part of the park at any time, making it perfect
+                                for
+                                those who want a more personalised experience.</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="inline-block"><strong>Less Hassle:</strong></span>
+                            <span class="block ml-6"> You control the schedule, allowing you to focus on the areas and
+                                animals you’re most interested in.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded mb-8">
+                    <p class="font-semibold text-red-800 mb-1">CONS:</p>
+                    <ul class="list-disc list-inside pl-6 space-y-2 text-gray-800">
+                        <li class="mb-3">
+                            <span class="inline-block"><strong>Risk of Getting Stuck:</strong></span>
+                            <span class="block ml-6"> You may get stuck in muddy or marshy areas, and recovery fees can
+                                be
+                                expensive.</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="inline-block"><strong>Missed Opportunities:</strong></span>
+                            <span class="block ml-6"> If you’re not familiar with the park or don't have <a
+                                    href="e-book-amboseli" class="font-bold underline text-cyan-500 animate-pulse">The
+                                    Exclusive
+                                    Amboseli National Park Map</a>, you might miss some prime animal viewing
+                                spots.</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <h3 class="text-2xl font-semibold mb-4">How Much Does a Self-Drive Safari in Amboseli Cost?</h3>
+                <p class="mb-8">Here’s a quick breakdown of the costs you can expect for a self-drive safari in Amboseli
+                    National
+                    Park:</p>
+
+
+                <p class="text-l font-bold mb-6">Rental Vehicle Costs (my example: 2 Days, SUV car)</p>
+                <ul class="list-disc list-inside pl-6 mb-6">
+                    <li>Car rental:<strong> 79.90£</strong></li>
+                    <li>Petrol:<strong> 54£</strong></li>
+                    <li>Car Wash:<strong> 5-10$</strong></li>
+                    <li>Insurance:<strong> 12.79£</strong></li>
+                </ul>
+
+                <p class="text-l font-bold mb-6">Entrance Fees:</p>
+                <ul class="list-disc list-inside pl-6 mb-6">
+                    <li>Non-Residents: Adult <strong>60USD</strong> Child: <strong>35USD</strong> (card
+                        payment only)
+                    </li>
+                    <li>Residents/Citizens: Adult <strong>860KSH</strong> Child: <strong>215KSH</strong> (cash, card,
+                        M-PESA)</li>
+                </ul>
+
+                <p class="text-l font-bold mb-6">Vehicle Entrance Fees (For Self-Drive Safari):</p>
+                <ul class="list-disc list-inside pl-6 mb-6">
+                    <li>Less than 6 seats: <strong>300 KSH</strong></li>
+                    <li>6-12 seats: <strong>1,030 KSH</strong></li>
+                    <li>13-24 seats: <strong>2,585 KSH</strong></li>
+                    <li>25-44 seats: <strong>4,050 KSH</strong></li>
+                    <li>45 seats and above: <strong>5,000 KSH</strong></li>
+                </ul>
+
+                <p class="text-l font-bold mb-6">Security/Guided Tours (Optional):</p>
+                <ul class="list-disc list-inside pl-6 mb-6">
+                    <li>Up to 4 hours: <strong>1,720 KSH</strong></li>
+                    <li>Over 4 hours: <strong>3,015 KSH</strong></li>
+                </ul>
+
+
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-md mb-8">
+                    <p class="font-semibold text-blue-800 mb-3 text-lg uppercase flex items-center">
+                        <span class="mr-2 text-2xl"></span> <span>Note:</span>
+                    </p>
+                    <p class="text-gray-800 mb-4 text-base">
+                        Keep in mind that prices may vary. For instance, 4x4 vehicles could be more expensive than SUVs
+                        in some cases. Additionally, entry fees might change over time. For the most up-to-date
+                        information, check the <a href="https://www.kws.go.ke/amboseli-national-park"
+                            class="font-bold text-cyan-500 hover:text-cyan-600 transition duration-300">Official
+                            Website</a>.
+                    </p>
+                </div>
+
+
+            </section>
+
+
+            <!-- Best Time to Visit Amboseli National Park -->
+            <section id="best-time" class="mb-8">
+                <h2 class="text-3xl font-semibold mb-4">Best Time to Visit Amboseli National Park</h2>
+
+                <div class="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden mb-8">
+                    <img src="./assets/giraffe-in-its-natural-environment.jpg"
+                        alt="Giraffe walking In Kenyan National Park Amboseli"
+                        class="object-cover object-center w-full h-full" loading="lazy">
+                </div>
+
+                <p class="mb-8">Amboseli is a <strong> year-round destination,</strong> but different times of the year
+                    offer unique
+                    experiences depending on what you're looking to see and do. Understanding the best seasons for
+                    <strong>wildlife viewing, weather</strong> conditions, and <strong>crowd levels</strong> will help
+                    you plan the
+                    perfect safari.</p>
+
+                <div class="flex gap-3 mb-8 text-center">
+
+                    <div class="flex-1 flex flex-col">
+                        <p class="font-semibold mb-5"><strong>Peak/Dry Season <br>(Jul - Oct)</strong></p>
+                        <p>The dry season offers the best wildlife viewing opportunities. Animals gather around
+                            waterholes, making it easier to spot elephants, zebras, and giraffes. The landscape is
+                            perfect for photography with clear skies and golden light.</p>
+                    </div>
+
+                    <div class="flex-1 flex flex-col">
+                        <p class="font-semibold mb-5"><strong>Shoulder Season<br>(Apr-Jun & Nov-Dec)</strong></p>
+                        <p>Lower crowds and accommodation prices, but you'll still get a great wildlife experience. It’s
+                            a perfect balance for those who want to enjoy a quieter safari while still spotting plenty
+                            of animals.</p>
+                    </div>
+
+                    <div class="flex-1 flex flex-col">
+                        <p class="font-semibold mb-5"><strong>Rainy/Wet Season <br> (Mar - May)</strong></p>
+                        <p>While wildlife can be harder to spot, the lush green landscape makes for incredible
+                            birdwatching and photography, especially with migratory birds like flamingos and white
+                            storks.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-100 border-l-4 border-blue-500 p-4 rounded mb-8">
+                    <p class="font-semibold text-blue-800 mb-2 uppercase">💡 Tip:</p>
+                    <p class="text-gray-800 mb-4">
+                        The <strong>wet season (March to May)</strong> offers fantastic birdwatching opportunities, as
+                        migratory birds flock to the park. If you're into landscape photography, this is also the
+                        perfect time for lush green views and clear vistas of <strong>Mount Kilimanjaro</strong>.
+                    </p>
+                    <p class="text-gray-800">
+                        If you're visiting during the <strong>dry season (June to October)</strong>, you’ll have the
+                        best wildlife sightings with animals congregating around water sources, offering prime
+                        opportunities for photography.
+                    </p>
+                </div>
+            </section>
+
+            <!-- E-book Amboseli -->
+            <section id="ebook" class="mb-8">
+                <h2 class="text-3xl font-semibold mb-4"> The Ultimate Guide to Amboseli National Park – Get Your
+                    Exclusive Map and eBook!</h2>
+
+                <div class="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden mb-8">
+                    <img src="./assets/amboseli-map-google.png"
+                        alt="The best Detailed Map and guide of Amboseli National Park for Safari Drive"
+                        class="object-cover object-center w-full h-full" loading="lazy">
+                </div>
+
+                <p class="mb-8">Navigating Amboseli National Park on a self-drive safari can be challenging without the
+                    right resources.
+                    Don’t risk missing out on the park’s stunning views, top wildlife spots, or hidden gems.
+                    With our <a href="#" class="text-cyan-500 font-bold animate-pulse">Exclusive Amboseli National Park
+                        Map
+                        and
+                        Guide</a>, you’ll be fully equipped
+                    to explore the park with confidence.</p>
+
+                <p class="mb-8">In This Exclusive eBook, You’ll Get:</p>
+
+                <ul class="list-disc list-inside pl-6 mb-6 flex flex-col gap-5">
+                    <li>
+                        <strong class="font-bold">A Detailed Map of Amboseli:</strong> Avoid getting lost in the vast
+                        savannah with a comprehensive map that highlights all the key park markers and important
+                        locations.
+                    </li>
+                    <li>
+                        <strong class="font-bold">Expert Tips for Self-Drive Safaris:</strong> Learn what to avoid to
+                        ensure a smooth and enjoyable experience while driving through Amboseli National Park.
+                    </li>
+                    <li>
+                        <strong class="font-bold">Must-Visit Locations:</strong> Discover the best places you can’t miss
+                        during your visit, including scenic viewpoints and prime wildlife areas.
+                    </li>
+                    <li>
+                        <strong class="font-bold">Animal Sightings Guide:</strong> Get exact locations where you’re most
+                        likely to spot elephants, giraffes, zebras, and more. I’ve also included real-life animal
+                        sighting locations for an unforgettable safari experience.
+                    </li>
+                    <li>
+                        <strong class="font-bold">Ideal 2-Day Safari Routes:</strong> Whether you’re on a tight schedule
+                        or have time to explore, I’ve mapped out the best routes for a 2-day Amboseli safari to
+                        maximize your wildlife sightings and scenic views.
+                    </li>
+                    <li>
+                        <strong class="font-bold">Wildlife Recognition Photos:</strong> With high-quality images and
+                        names, you'll easily identify animals you encounter on your journey, from the majestic elephants
+                        to the elusive cheetahs.
+                    </li>
+                </ul>
+
+
+                <div class="text-center mt-12">
+                    <p class="text-lg text-gray-800 mb-8">
+                        This exclusive eBook provides everything you need to make the most of your self-drive safari in
+                        Amboseli National Park.
+                        From planning your ideal route to recognizing animals with ease, this guide will enhance your
+                        experience and help you navigate the park like a pro!
+                    </p>
+
+
+
+
+                    <div class="text-center mt-12">
+                        <a href="#" class="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold py-4 px-10 
+            rounded-lg shadow-xl transform transition-all duration-300 ease-in-out
+            animate-pulse hover:scale-105 hover:shadow-2xl hover:brightness-110">
+                            🚀 Get Your Guide Now
+                        </a>
+
+
+
+
+
+
+
+
+                        <p class="text-sm text-gray-500 mt-2 italic">Instant download – only $9.99</p>
+                    </div>
+
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+        <!-- Sidebar (2/5) - Hidden on Mobile -->
+        <aside class="hidden lg:block lg:col-span-2 bg-black p-4 rounded-md h-fit">
+            <h2
+                class="bg-gradient-to-r from-cyan-400 to-cyan-600 text-white text-xl font-semibold px-4 py-2 rounded-md mb-6">
+                Recent Posts
+            </h2>
+            <div class="space-y-6">
+
+                <a href="post-smoking-african-tribes.html"
+                    class="flex items-stretch gap-4 hover:opacity-80 transition relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1583364493238-248032147fbd?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Post thumbnail" class="w-20 object-cover rounded-md" />
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center rounded-md">
+                            <span class="text-white text-[10px] font-semibold">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="text-white flex flex-col justify-between">
+                        <p class="font-semibold text-sm leading-snug">
+                            Smoking in African Tribes: What Was Traditional and What Came Later
+                        </p>
+                        <span class="text-xs text-gray-300 mt-1">Kofi Adeyemi /// July 4, 2025</span>
+                    </div>
+                </a>
+
+
+                <a href="post-wonjo-recipe.html" class="flex items-stretch gap-4 hover:opacity-80 transition relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Post thumbnail" class="w-20 object-cover rounded-md" />
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center rounded-md">
+                            <span class="text-white text-[10px] font-semibold">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="text-white flex flex-col justify-between">
+                        <p class="font-semibold text-sm leading-snug">
+                            How to Make Wonjo With Hibiscus and Pineapple
+                        </p>
+                        <span class="text-xs text-gray-300 mt-1">Kofi Adeyemi /// July 2, 2025</span>
+                    </div>
+                </a>
+
+                <a href="post-drive-across-africa.html"
+                    class="flex items-stretch gap-4 hover:opacity-80 transition relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1490902931801-d6f80ca94fe4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Post thumbnail" class="w-20 object-cover rounded-md" />
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center rounded-md">
+                            <span class="text-white text-[10px] font-semibold">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="text-white flex flex-col justify-between">
+                        <p class="font-semibold text-sm leading-snug">
+                            Can You Drive Across Africa from West to East Safely?
+                        </p>
+                        <span class="text-xs text-gray-300 mt-1">Kofi Adeyemi /// June 30, 2025</span>
+                    </div>
+                </a>
+
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black px-6 py-12 text-center text-white">
+        <!-- Navigation -->
+        <div class="flex justify-center space-x-6 mb-6 text-sm">
+            <a href="#" class="text-cyan-400 hover:opacity-80">Home</a>
+            <a href="#" class="text-cyan-400 hover:opacity-80">Shop</a>
+            <a href="#" class="text-cyan-400 hover:opacity-80">Blog</a>
+            <a href="#" class="text-cyan-400 hover:opacity-80">Gallery</a>
+            <a href="#" class="text-cyan-400 hover:opacity-80">Contact</a>
+        </div>
+
+        <!-- Socials -->
+        <div class="flex justify-center space-x-6 mb-6 text-xl">
+            <a href="#" aria-label="Instagram" class="text-cyan-400 hover:opacity-80"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok" class="text-cyan-400 hover:opacity-80"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube" class="text-cyan-400 hover:opacity-80"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Legal -->
+        <div class="text-xs text-gray-400 mb-2">
+            <a href="/privacy" class="hover:underline">Privacy Policy</a> •
+            <a href="/terms" class="hover:underline">Terms</a>
+        </div>
+        <p class="text-xs text-gray-500">&copy; 2025 Dennisrmnk. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
