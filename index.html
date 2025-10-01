@@ -234,17 +234,18 @@
 
       <div class="mt-8 text-center space-y-2 text-gray-300">
         <p>
-          <span class="font-semibold text-white">29</span>
+          <span class="font-semibold text-white countup" data-target="29" data-duration="1400"
+            aria-live="polite">0</span>
           Countries
         </p>
         <p>
-          <span class="font-semibold text-white">6</span>
+          <span class="font-semibold text-white countup" data-target="6" data-duration="1200"
+            aria-live="polite">0</span>
           Continents
         </p>
         <p>
-          <span class="font-semibold" style="color: #25d3d4">
-            15%
-          </span>
+          <span class="font-semibold countup" style="color: #25d3d4" data-target="15" data-suffix="%"
+            data-duration="1400" aria-live="polite">0%</span>
           of the World
         </p>
       </div>
@@ -328,6 +329,54 @@
           }
         );
       });
+    </script>
+
+    <!-- CountUp on-viewport animation -->
+    <script>
+      (function () {
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        function animateCount(el, start, end, duration, suffix) {
+          const startTime = performance.now();
+
+          function frame(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutCubic(progress);
+            const current = Math.round(start + (end - start) * eased);
+            el.textContent = current + (suffix || '');
+            if (progress < 1) requestAnimationFrame(frame);
+          }
+
+          requestAnimationFrame(frame);
+        }
+
+        const items = document.querySelectorAll('.countup');
+        if (items.length === 0) return;
+
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseFloat(el.getAttribute('data-target')) || 0;
+            const duration = parseInt(el.getAttribute('data-duration')) || 1200;
+            const suffix = el.getAttribute('data-suffix') || '';
+            // Some elements include a suffix in the initial markup (like '%') — strip it for parsing
+            const start = 0;
+            animateCount(el, start, target, duration, suffix);
+            obs.unobserve(el);
+          });
+        }, {
+          threshold: 0.5
+        });
+
+        items.forEach(el => {
+          // ensure initial content is zero + suffix if present
+          const suffix = el.getAttribute('data-suffix') || '';
+          el.textContent = '0' + (suffix || '');
+          io.observe(el);
+        });
+      })();
     </script>
 
 
