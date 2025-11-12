@@ -1,0 +1,125 @@
+<style>
+    /* Enhanced animated hamburger -> X */
+    .hamburger {
+        width: 26px;
+        height: 20px;
+        display: inline-block;
+        position: relative;
+        transform-origin: center;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .hamburger span {
+        position: absolute;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: #fff;
+        border-radius: 2px;
+        transform-origin: center;
+        transition: transform .36s cubic-bezier(.2, .9, .2, 1), top .36s cubic-bezier(.2, .9, .2, 1), opacity .2s ease;
+        will-change: transform, opacity, top;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+        top: 9px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 18px;
+    }
+
+    .hamburger.open span:nth-child(1) {
+        top: 9px;
+        transform: rotate(45deg) scaleX(1.02);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0.2);
+    }
+
+    .hamburger.open span:nth-child(3) {
+        top: 9px;
+        transform: rotate(-45deg) scaleX(1.02);
+    }
+</style>
+
+<header id="site-header" class="absolute top-0 w-full z-50 flex justify-between items-center p-6 bg-transparent">
+    <div class="text-white font-bold text-2xl">The Minimalist</div>
+
+    <button id="hamburger-icon" aria-label="Toggle menu" class="lg:hidden p-2 text-white" type="button">
+        <span class="hamburger" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </button>
+
+    <nav class="flex gap-6 text-sm lg:flex hidden">
+        <a href="index.html" class="hover:opacity-60 transition duration-300">Home</a>
+        <a href="shop.html" class="hover:opacity-60 transition duration-300">Shop</a>
+        <a href="blog.html" class="hover:opacity-60 transition duration-300">Blog</a>
+        <a href="gallery.html" class="hover:opacity-60 transition duration-300">Gallery</a>
+        <a href="#" class="hover:opacity-60 transition duration-300">Contact</a>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden hidden absolute left-0 right-0 top-full z-40">
+        <ul class="flex flex-col font-medium bg-black text-white shadow-lg max-h-screen overflow-auto">
+            <li><a href="index.html" class="block py-3 px-4 hover:bg-gray-900">Home</a></li>
+            <li><a href="shop.html" class="block py-3 px-4 hover:bg-gray-900">Shop</a></li>
+            <li><a href="blog.html" class="block py-3 px-4 hover:bg-gray-900">Blog</a></li>
+            <li><a href="gallery.html" class="block py-3 px-4 hover:bg-gray-900">Gallery</a></li>
+            <li><a href="#" class="block py-3 px-4 hover:bg-gray-900">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<script>
+    // Hamburger menu logic
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerVisual = hamburgerIcon.querySelector('.hamburger');
+
+    function openMenu() {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('open');
+        hamburgerIcon.setAttribute('aria-expanded', 'true');
+        hamburgerVisual.classList.add('open');
+        document.documentElement.classList.add('overflow-hidden');
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('open');
+        hamburgerIcon.setAttribute('aria-expanded', 'false');
+        hamburgerVisual.classList.remove('open');
+        document.documentElement.classList.remove('overflow-hidden');
+    }
+
+    hamburgerIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (mobileMenu.classList.contains('hidden')) openMenu();
+        else closeMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !hamburgerIcon.contains(e.target)) {
+            if (!mobileMenu.classList.contains('hidden')) closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => closeMenu());
+    });
+</script>
