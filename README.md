@@ -1,6 +1,13 @@
 # 🌍 The Minimalist - Travel Blog & Guides
 
-> A visually immersive travel blog showcasing global adventures, favourite destinations, and practical travel tips.
+> A visually immersive travel blog showcasing global adventures, favourite destinations, and practical travel tips. Based on my own experiences.
+
+![img](screenshots/screen-1.png)
+![img](screenshots/screen-2.png)
+![img](screenshots/screen-3.png)
+![img](screenshots/screen-4.png)
+![img](screenshots/screen-5.png)
+![img](screenshots/screen-6.png)
 
 ---
 
