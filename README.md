@@ -72,12 +72,6 @@
 
 ---
 
-🏆 Challenge Credit
-Challenge by Frontend Mentor
-https://www.frontendmentor.io
-
----
-
 🙋‍♂️ Author
 Dennis Rumanek
 
